@@ -1,8 +1,8 @@
 Summary:	Implements filesystem automounting functionality similar to Linux's autofs
 Name:		afuse
-Version:	0.1.1
-Release:	%mkrel 2
-License:	GPL
+Version:	0.2
+Release:	%mkrel 1
+License:	GPLv2+
 Group:		Networking/Other
 URL:		http://sourceforge.net/projects/afuse/
 Source0:	http://dfn.dl.sourceforge.net/sourceforge/afuse/%{name}-%{version}.tar.gz
