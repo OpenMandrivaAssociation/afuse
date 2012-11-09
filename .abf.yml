@@ -1,0 +1,4 @@
+sources:
+  "afuse-0.2.tar.gz:"	c42b1cee671ac4e98c882e33adc0834c4553f24a
+  "afuse.init:"	cde6fbbee753b8884b23e9abf0ca4d9957ea6e90
+  "afuse.sysconfig:"	66620e622cc445cbc7eaed15b6a1dd467df90b9a
