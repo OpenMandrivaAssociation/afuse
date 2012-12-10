@@ -1,7 +1,7 @@
 Summary:	Implements filesystem automounting functionality similar to Linux's autofs
 Name:		afuse
 Version:	0.2
-Release:	%mkrel 3
+Release:	%mkrel 2
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://sourceforge.net/projects/afuse/
@@ -58,3 +58,26 @@ rm -rf %{buildroot}
 %attr(0755,root,root) %{_initrddir}/afuse
 %{_bindir}/%{name}
 
+
+
+%changelog
+* Thu Sep 10 2009 Thierry Vignaud <tvignaud@mandriva.com> 0.2-2mdv2010.0
++ Revision: 436633
+- rebuild
+
+* Tue Mar 17 2009 Emmanuel Andry <eandry@mandriva.org> 0.2-1mdv2009.1
++ Revision: 356576
+- New version 0.2
+- fix license
+
+* Thu Jun 19 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.1.1-2mdv2009.0
++ Revision: 226136
+- rebuild
+
+* Fri Feb 08 2008 Oden Eriksson <oeriksson@mandriva.com> 0.1.1-1mdv2008.1
++ Revision: 164130
+- import afuse
+
+
+* Fri Feb 08 2008 Oden Eriksson <oeriksson@mandriva.com> 0.1.1-1mdv2008.1
+- initial Mandriva package

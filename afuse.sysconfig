@@ -1,0 +1,3 @@
+
+# put options here
+AFUSE_OPTIONS="-o mount_template=\"sshfs %r:/ %m\" -o unmount_template=\"fusermount -u -z %m\" /var/autofs/ssh"
