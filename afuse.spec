@@ -3,7 +3,7 @@ Summary:	An automounter implemented with FUSE
 Version:	0.4
 Release:	1
 License:	GPLv2+
-Group:		System Environment/Base
+Group:		Networking/Other
 Source0:	https://afuse.googlecode.com/files/%{name}-%{version}.tar.gz
 URL:		https://github.com/pcarrier/afuse/
 BuildRequires:	fuse-devel
