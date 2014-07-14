@@ -1,83 +1,34 @@
-Summary:	Implements filesystem automounting functionality similar to Linux's autofs
 Name:		afuse
-Version:	0.2
-Release:	%mkrel 2
+Summary:	An automounter implemented with FUSE
+Version:	0.4
+Release:	1
 License:	GPLv2+
-Group:		Networking/Other
-URL:		http://sourceforge.net/projects/afuse/
-Source0:	http://dfn.dl.sourceforge.net/sourceforge/afuse/%{name}-%{version}.tar.gz
-Source1:	afuse.init
-Source2:	afuse.sysconfig
-Requires(post): rpm-helper
-Requires(preun): rpm-helper
-Requires:	fuse >= 2.5
-BuildRequires:	fuse-devel >= 2.5
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Group:		System Environment/Base
+Source0:	https://afuse.googlecode.com/files/%{name}-%{version}.tar.gz
+URL:		https://github.com/pcarrier/afuse/
+BuildRequires:	fuse-devel
 
 %description
-Afuse is a FUSE based filesystem which implements filesystem automounting
-functionality similar to Linux's autofs.
+Afuse is an automounting file system implemented in user-space using FUSE. 
+Afuse currently implements the most basic functionality that can be expected 
+by an automounter; that is it manages a directory of virtual directories. If 
+one of these virtual directories is accessed and is not already automounted, 
+afuse will attempt to mount a filesystem onto that directory. If the mount 
+succeeds the requested access proceeds as normal, otherwise it will fail 
+with an error.
 
 %prep
-
 %setup -q
 
-cp %{SOURCE1} .
-cp %{SOURCE2} .
-
 %build
-
-%configure2_5x
-
+%configure
 %make
 
 %install
-rm -rf %{buildroot}
-
-%makeinstall
-
-install -d %{buildroot}%{_sysconfdir}/sysconfig
-install -d %{buildroot}%{_initrddir}
-
-install -m0755 afuse.init %{buildroot}%{_initrddir}/afuse
-install -m0644 afuse.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/afuse
-
-%post 
-%_post_service afuse
-
-%preun
-%_preun_service afuse
-
-%clean
-rm -rf %{buildroot}
+%makeinstall_std
 
 %files
-%defattr(-,root,root)
-%doc COPYING COPYING.LIB ChangeLog README
-%attr(0644,root,root) %config(noreplace) %{_sysconfdir}/sysconfig/afuse
-%attr(0755,root,root) %{_initrddir}/afuse
-%{_bindir}/%{name}
+%doc AUTHORS ChangeLog COPYING README
+%{_bindir}/afuse
+%{_bindir}/afuse-avahissh
 
-
-
-%changelog
-* Thu Sep 10 2009 Thierry Vignaud <tvignaud@mandriva.com> 0.2-2mdv2010.0
-+ Revision: 436633
-- rebuild
-
-* Tue Mar 17 2009 Emmanuel Andry <eandry@mandriva.org> 0.2-1mdv2009.1
-+ Revision: 356576
-- New version 0.2
-- fix license
-
-* Thu Jun 19 2008 Thierry Vignaud <tvignaud@mandriva.com> 0.1.1-2mdv2009.0
-+ Revision: 226136
-- rebuild
-
-* Fri Feb 08 2008 Oden Eriksson <oeriksson@mandriva.com> 0.1.1-1mdv2008.1
-+ Revision: 164130
-- import afuse
-
-
-* Fri Feb 08 2008 Oden Eriksson <oeriksson@mandriva.com> 0.1.1-1mdv2008.1
-- initial Mandriva package
