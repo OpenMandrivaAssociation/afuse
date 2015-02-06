@@ -1,7 +1,7 @@
 Name:		afuse
 Summary:	An automounter implemented with FUSE
 Version:	0.4
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Networking/Other
 Source0:	https://afuse.googlecode.com/files/%{name}-%{version}.tar.gz
