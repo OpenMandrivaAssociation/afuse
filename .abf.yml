@@ -1,4 +1,2 @@
-removed_sources:
-  afuse-0.2.tar.gz: c42b1cee671ac4e98c882e33adc0834c4553f24a
 sources:
-  afuse-0.4.tar.gz: 8587b9c590310a63519054c4a577388d15a3d7bb
+  v0.5.0.tar.gz: b1e11b106e16954667accec62db5e53ebd8eba6f

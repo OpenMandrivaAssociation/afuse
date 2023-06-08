@@ -1,12 +1,14 @@
 Name:		afuse
 Summary:	An automounter implemented with FUSE
-Version:	0.4
-Release:	2
+Version:	0.5.0
+Release:	1
 License:	GPLv2+
 Group:		Networking/Other
-Source0:	https://afuse.googlecode.com/files/%{name}-%{version}.tar.gz
+Source0:	https://github.com/pcarrier/afuse/archive/refs/tags/v%{version}.tar.gz
 URL:		https://github.com/pcarrier/afuse/
-BuildRequires:	fuse-devel
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	pkgconfig(fuse) < 3.0.0
 
 %description
 Afuse is an automounting file system implemented in user-space using FUSE. 
@@ -18,14 +20,15 @@ succeeds the requested access proceeds as normal, otherwise it will fail
 with an error.
 
 %prep
-%setup -q
+%autosetup -p1
+./autogen.sh
+%configure
 
 %build
-%configure
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %doc AUTHORS ChangeLog COPYING README
